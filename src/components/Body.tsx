@@ -298,8 +298,8 @@ const Body: React.FC<IProps> = () => {
 
   const getMetadataFromEnv = async (name: string) => {
     let url = utils.getEnvConfig(name).metadataUrl;
-    //let response = await fetch(url, { mode: 'no-cors' });
-    let response = await fetch(url);
+    let response = await fetch(url, { mode: 'no-cors' });
+    //let response = await fetch(url);
     let responseJson = await response.json();
     responseJson.map((item: IMetadata, i: number) =>
       ipfsMetadata.set(item.edition.toString(), correctIpfs(item))
